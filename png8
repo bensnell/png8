@@ -116,14 +116,14 @@ to generate")
                 # Backup
                 if not opts.nobackup:
                     org_file = self.filename_append(file, ".backup.png")
-                    os.rename(file, org_file);
+                    shutil.move(file, org_file);
 
                 # Overwrite original file or move to destination dir.
                 if opts.destination:
                     dest_file = os.path.join(opts.destination,
                             os.path.basename(file))
 
-                os.rename(new_file, dest_file);
+                shutil.move(new_file, dest_file);
                 new_file = dest_file
 
                 # Preview files. Interactive mode has already previewed.
